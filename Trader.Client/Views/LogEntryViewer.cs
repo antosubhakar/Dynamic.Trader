@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 using DynamicData;
 using DynamicData.Binding;
 using ReactiveUI;
-
+using System.Reactive;
 using Trader.Client.Infrastucture;
 using Trader.Domain.Infrastucture;
 
@@ -22,7 +22,7 @@ namespace Trader.Client.Views
         private LogEntrySummary _summary = LogEntrySummary.Empty;
 
         public ReadOnlyObservableCollection<LogEntryProxy> Data { get; }
-        public ReactiveCommand DeleteCommand { get; }
+        public ReactiveCommand<Unit, Unit> DeleteCommand { get; }
         public IAttachedSelector Selector => _selectionController;
 
         public LogEntryViewer(ILogEntryService logEntryService)
